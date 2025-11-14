@@ -1,6 +1,3 @@
-**YES! HERE'S THE COMPLETE TROUBLESHOOTING.MD IN ONE MARKDOWN BLOCK:**
-
-```
 # Troubleshooting Guide
 
 ## Common Errors & Solutions
