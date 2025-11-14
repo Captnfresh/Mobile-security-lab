@@ -1,1 +1,59 @@
+site_name: Mobile Security Lab Documentation
+site_description: Week 7 - Android Penetration Testing Workstation Setup
+site_author: Your Name
 
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - Lab Setup: 
+    - Prerequisites: setup/prerequisites.md
+    - Installation Guide: setup/installation.md
+    - Verification: setup/verification.md
+  - Tools Guide:
+    - JADX-GUI: tools/jadx.md
+    - ADB: tools/adb.md
+    - Docker Android: tools/docker-android.md
+  - Usage Guide:
+    - APK Analysis: usage/apk-analysis.md
+    - Security Testing: usage/security-testing.md
+  - Troubleshooting: troubleshooting.md
+  - Demo & Results: demo.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - pdf-export:
+      verbose: true
+      enabled: true
+
+extra_css:
+  - stylesheets/extra.css
