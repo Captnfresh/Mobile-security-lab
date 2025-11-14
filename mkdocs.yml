@@ -51,9 +51,10 @@ markdown_extensions:
 
 plugins:
   - search
-  - pdf-export:
-      verbose: true
+  - with-pdf:
       enabled: true
+      author: Your Name
+      cover: true
+      cover_title: "Mobile Security Lab Documentation"
+      cover_subtitle: "Week 7 - Android Penetration Testing Workstation Setup"
 
-extra_css:
-  - stylesheets/extra.css
