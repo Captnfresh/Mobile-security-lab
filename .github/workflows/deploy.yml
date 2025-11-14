@@ -1,41 +1,18 @@
-name: Deploy to GitHub Pages and Generate PDF
-
+name: Deploy
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-    
-    - name: Install MkDocs and PDF plugin
-      run: |
-        pip install mkdocs-material
-        pip install mkdocs-pdf-export-plugin
-    
-    - name: Build site and generate PDF
-      run: |
-        mkdocs build
-        mkdocs pdf-export -o documentation.pdf
-    
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./site
-    
-    - name: Upload PDF
-      uses: actions/upload-artifact@v4
-      with:
-        name: documentation-pdf
-        path: documentation.pdf
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs mkdocs-material mkdocs-with-pdf
+      - run: mkdocs build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
